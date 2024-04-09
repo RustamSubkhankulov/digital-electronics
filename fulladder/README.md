@@ -1,5 +1,9 @@
 ## Полный сумматор (Full Adder) двух 3-битных входов
 
+### Инструменты
+Моделирование будет происходить в программе с открытым исходным 
+кодом «Logisim» под лицензией GNU GPL 2.0.
+
 ### Описание 
 Назначение схемы состоит в сложении n-битовых входов,
 представляющий два числа разрядности n, где n=3 в нашем случае.
@@ -9,7 +13,7 @@
 однобитовых чисел получается из простейшего half-adder’a добавлением
 учёта carry-бита. Ниже приведены схемы для half-adder и full-adder для
 n=1
-![adders](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/adders.png)
+![adders](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/adders.png)
 
 ### Схема
 A[2:0],B[2:0] - входные 3-х битовые числа
@@ -20,7 +24,7 @@ S[2:0] и C - результат сложения - 3-х битовое числ
 как нет значения carry-бита, которые могло бы быть высчитано на
 предыдущем шаге и которое должно было бы быть учтено. Сумма
 вычисляется при помощи XOR-gate, а carry - с помощью AND-gate.
-![scheme](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/scheme.png)
+![scheme](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/scheme.png)
 
 При сложении первый и вторых битов мы пользуемся более сложной
 схемой. Сначала мы повторяем действия предыдущего шага - используем
@@ -33,17 +37,17 @@ XOR и AND gate, чтобы посчитать первые значения с�
 ### Тестирование
 Рассмотрим работу схемы на различных входных значениях.
 Все входные биты равны нулю:
-![test1](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/test1.png)
+![test1](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/test1.png)
 Все входные биты равны единице:
-![test2](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/test2.png)
+![test2](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/test2.png)
 3 + 3 = 6:
-![test3](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/test3.png)
+![test3](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/test3.png)
 6 + 1 = 7:
-![test4](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/test4.png)
+![test4](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/test4.png)
 
 ### Просчёт критического пути
 Критический путь:
-![crit](https://github.com/RustamSubkhankulov/digital-electronics/tree/main/fulladder/pisc/crit.png)
+![crit](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/fulladder/pics/crit.png)
 
 ### Примерное число транзисторов:
 5 XOR-gate, 5 AND-gate, 2 OR-gate
