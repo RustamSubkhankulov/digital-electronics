@@ -11,7 +11,7 @@
 
 #### Пункт №1
 
-![src1](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/src1.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/src1.png" alt="src1" width="400"/>
 
 Запустим симуляцию программы В RARS Tool с включенным BHT Simulator c опциями:
 - Number of BHT entries == 8
@@ -20,15 +20,15 @@
 
 Ниже приведено начальное состояние **BHT** с данными опциями.
 
-![bht1i](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht1i.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht1i.png" alt="bht1i" width="700"/>
 
 Модель предсказаний, используемая **BHT** с данными настройками, описывается следующим конечным автоматом состояний:
 
-![dfa1](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/dfa1.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/dfa1.png" alt="dfa1" width="600"/>
 
 Состояние BHT в конце симуляции:
 
-![bht1f](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht1f.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht1f.png" alt="bht1f" width="700"/>
 
 - Инструкции перехода **magic_br_1** соответствует *Index*=5, точность предсказания - 99.99 (начальное предположение неверно, branch не взят, *Prediction* -> NOT TAKE, на всех последующих итерациях предположение верно).
 - Инструкции перехода **magic_br_2** соответствует *Index*=7, точность предсказания - 100 (начальное предположение верно, branch взят, *Prediction* сохраняет значение TAKE, на всех последующих итерациях предположение верно).
@@ -37,7 +37,7 @@
 
 Добавим в ассемблерный код инструкции nop так, чтобы точность предсказания для обоих инструкций прямого условного перехода **magic_br_1** и **magic_br_2** составила 0.
 
-![src2](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/src2.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/src2.png" alt="src2" width="400"/>
 
 Для этого вставим 6 инструкций nop между **magic_br_1** и **magic_br_2**. Таким образом, обе инструкции перехода будут сопоставлены одной и той же записи в **BHT** - с значением *Index* == 5. 
 
@@ -47,7 +47,7 @@
 
 Как результат, точность предсказаний для обеих инструкций перехода - 0
 
-![bht2f](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht2f.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht2f.png" alt="bht2f" width="700"/>
 
 #### Пункт №3
 
@@ -58,15 +58,15 @@
 
 Ниже приведено начальное состояние **BHT** с данными опциями.
 
-![bht3i](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht3i.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht3i.png" alt="bht3i" width="700"/>
 
 Модель предсказаний, используемая **BHT** с данными настройками, описывается следующим конечным автоматом состояний:
 
-![dfa2](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/dfa2.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/dfa2.png" alt="dfa2" width="600"/>
 
 Состояние **BHT** в конце симуляции:
 
-![bht3f](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht3f.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht3f.png" alt="bht3f" width="700"/>
 
 - Как и в предыдущей симуляции, обеим инструкциям перехода соответствует одна и та же запись в **BHT** - *Index* == 5.
 - Начальное состояние записи - *Prediction* = TAKE, *History* = T,T
@@ -82,7 +82,7 @@
 
 Дополним код программы из пункта 2, добавив две инструкции **beq** так, чтобы точность предсказаний для всех 4 инструкций прямого условного перехода (**magic_br_1**, **magic_br_2** + 2 новых инструкции) не превышала 0.0001. Инструкции **beq** и **nop** расположены так, чтобы для всех четырех инструкций перехода использовалась одна и та же запись в **BHT** с *Index* == 5.
 
-![src3](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/src3.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/src3.png" alt="src3" width="400"/>
 
 Первая итерация: 
 - **magic_br_1**: переход не выполнен, *Prediction*: TAKE -> TAKE, *History*: T,T ->  T, NT
@@ -98,7 +98,7 @@
 - **magic_br_4**: переход не выполнен, *Prediction*: TAKE -> TAKE, *History*:   T, T ->  T, NT
 На каждой итерации предсказания для всех инструкций перехода оказываются неверными.
 
-![bht4](https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht4.png)
+<img src="https://github.com/RustamSubkhankulov/digital-electronics/blob/main/branchprediction/pics/bht4.png" alt="bht4" width="500"/>
 
 Таким образом, точность для переходов: 
 - **magic_br_1**: 0 / 10000 = 0
